@@ -1,18 +1,23 @@
 #!/bin/sh
 
 #  Personal stuff
-# Change taskbar behaviour - KDE specific
-sed -i '/panelVisibility/c\panelVisibility=2' /home/thom/.config/plasmashellrc
-sed -i '/thickness/c\thickness=36' /home/thom/.config/plasmashellrc
-# Change Firefox compact mode -> UI density
+# KDE - Change taskbar behaviour
+sed -i '/panelVisibility/c\panelVisibility=2' ~/.config/plasmashellrc
+sed -i '/thickness/c\thickness=36' ~/.config/plasmashellrc
+# KDE - Session
+sed -i '4i [General]' ~/.config/ksmserverrc
+sed -i '5i confirmLogout=false' ~/.config/ksmserverrc
+sed -i '6i excludeApps=timeshift-gtk' ~/.config/ksmserverrc
+
+# Firefox - Compact mode ( UI density )
 echo "user_pref(\"browser.compactmode.show\", \"true\");" >> ~/.mozilla/firefox/*.default/user.js
 echo "user_pref(\"browser.uidensity\", \"1\");" >> ~/.mozilla/firefox/*.default/user.js
 # Code
 yay -S --noconfirm code
-cp settings.json '/home/thom/.config/Code - OSS/User/'
+cp settings.json '~/.config/Code - OSS/User/'
 # Barrier
 yay -S --noconfirm barrier-headless
-cp barrierc.desktop '/home/thom/.config/autostart/'
+cp barrierc.desktop ~/.config/autostart/
 
 #  Configuring EndeavourOS
 # Configure git
@@ -28,3 +33,4 @@ yay -S --noconfirm linux-zen linux-zen-headers
 yay -R --noconfirm linux linux-headers
 sudo dracut-rebuild
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+
