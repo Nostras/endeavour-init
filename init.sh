@@ -5,11 +5,14 @@
 sed -i '/panelVisibility/c\panelVisibility=2' /home/thom/.config/plasmashellrc
 sed -i '/thickness/c\thickness=36' /home/thom/.config/plasmashellrc
 # Firefox compact mode (PLEASE)
-cd /home/thom/.mozilla/firefox/*.default
-touch user.js
-echo "user_pref(\"browser.compactmode.show\", \"true\");" >> user.js
-echo "user_pref(\"browser.uidensity\", \"1\");" >> user.js
+echo "user_pref(\"browser.compactmode.show\", \"true\");" >> ~/.mozilla/firefox/*.default/user.js
+echo "user_pref(\"browser.uidensity\", \"1\");" >> ~/.mozilla/firefox/*.default/user.js
+# Code
+yay -S --noconfirm code
+cp settings.json '/home/thom/.config/Code - OSS/User/'
 
+
+# Other niceties
 git config --global user.name "Thom"
 git config -S --noconfirm --global user.email "Thombog@gmail.com"
 yay timeshift grub-btrfs

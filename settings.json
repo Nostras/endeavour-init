@@ -1,0 +1,7 @@
+{
+    "security.workspace.trust.enabled": false,
+    "window.menuBarVisibility": "toggle",
+    "workbench.startupEditor": "none",
+    "git.autofetch": true,
+    "git.confirmSync": false
+}
